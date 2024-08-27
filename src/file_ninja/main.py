@@ -25,6 +25,24 @@ def create_file(filename, content):
     file_manager.create(filename, content)
 
 
+@click.command()
+@click.option(
+    "--source",
+    prompt="File to copy",
+    required=True,
+    help="Name of the file to copy",
+)
+@click.option(
+    "--destination",
+    prompt="Copy location",
+    required=True,
+    help="Where to copy file to",
+)
+def copy_file(source, destination):
+    file_manager.copy_file(source, destination)
+
+
 if __name__ == "__main__":
     cli.add_command(create_file)
+    cli.add_command(copy_file)
     cli()
