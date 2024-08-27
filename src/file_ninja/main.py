@@ -42,7 +42,31 @@ def copy_file(source, destination):
     file_manager.copy_file(source, destination)
 
 
+@click.command()
+@click.option(
+    "--source_one",
+    prompt="First file to copy",
+    required=True,
+    help="Name of the first file to copy",
+)
+@click.option(
+    "--source_two",
+    prompt="Second file to copy",
+    required=True,
+    help="Name of the second file to copy",
+)
+@click.option(
+    "--destination",
+    prompt="Final file",
+    required=True,
+    help="Where to save the combined file",
+)
+def merge_files(source_one, source_two, destination):
+    file_manager.merge_files(source_one, source_two, destination)
+
+
 if __name__ == "__main__":
     cli.add_command(create_file)
     cli.add_command(copy_file)
+    cli.add_command(merge_files)
     cli()
