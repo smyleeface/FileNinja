@@ -1,3 +1,6 @@
+import os
+
+
 def create(filename, content):
     """Writes content to a file."""
     try:
@@ -46,3 +49,14 @@ def merge_files(source_one, source_two, destination):
         print(f"Error writing to {destination_file}: {e}")
         raise e
     print(f"File {destination} merged successfully")
+
+
+def delete_file(filename):
+    """Deletes a file."""
+    try:
+        print(f"Deleting file {filename}")
+        os.remove(filename)
+    except Exception as e:
+        print(f"Error deleting file: {e}")
+        raise e
+    print(f"File {filename} deleted successfully")

@@ -65,8 +65,20 @@ def merge_files(source_one, source_two, destination):
     file_manager.merge_files(source_one, source_two, destination)
 
 
+@click.command()
+@click.option(
+    "--source",
+    prompt="File to delete",
+    required=True,
+    help="Name of the file to delete",
+)
+def delete_file(source):
+    file_manager.delete_file(source)
+
+
 if __name__ == "__main__":
     cli.add_command(create_file)
     cli.add_command(copy_file)
     cli.add_command(merge_files)
+    cli.add_command(delete_file)
     cli()
