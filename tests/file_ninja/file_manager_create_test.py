@@ -38,7 +38,7 @@ class CreateFileTest(unittest.TestCase):
         with open(filename, "r") as f:
             self.assertEqual(f.read(), content)
 
-    @patch("file_ninja.app.file_manager.open", side_effect=Exception)
+    @patch("file_ninja.file_manager.open", side_effect=Exception)
     def test_create_error(self, open_file_mock):
         # Arrange
         filename = os.path.join(self.temp_filepath, "foo")
