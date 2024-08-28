@@ -1,6 +1,10 @@
 name: Build and Distribute
 run-name: ${{ github.actor }} is building FileNinja
-on: [push]
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   Build:
     runs-on: ubuntu-latest
